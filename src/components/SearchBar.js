@@ -15,6 +15,11 @@ class SearchBar extends React.Component {
     console.log('Input was clicked')
   }
 
+  onFormSubmit = ( event ) => {
+    event.preventDefault();
+    console.log(this.state.term);
+  }
+
   /*
     Note: for this.onInputChange we exlude the parenthesis, since we are only linking a reference to the onInputChange and not calling everytime the render() method is called, we only want onInputChange to be called when the text input field is changed, it will serve as a callback function.
   */
@@ -34,7 +39,7 @@ class SearchBar extends React.Component {
     );*/
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label>Image Search</label>
             <input 
